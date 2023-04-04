@@ -1,0 +1,10 @@
+@(products: Seq[Product])
+
+<h1>Lista produktów</h1>
+
+<ul>
+  @for(product <- products) {
+    <li>@product.id - @product.name - @product.price</li>
+  }
+</ul>
+

@@ -1,0 +1,16 @@
+@import helper._
+@import play.api.mvc._
+@(userForm: Form[Product])(implicit messages: Messages, request: RequestHeader)
+@import controllers.routes
+@main("Scala Play forms tutorial") {
+    <h1>Scala Play forms tutorial</h1>
+
+    @helper.form(action = routes.ProductController.simpleFormPost, Symbol("method") -> "POST") {
+        @CSRF.formField
+
+        @inputText(userForm("id"))
+        @inputText(userForm("name"))
+        @inputText(userForm("price"))
+        <input type="submit" value="Submit">
+    }
+}
